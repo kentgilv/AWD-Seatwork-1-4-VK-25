@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hall of Fame</title>
+    <script src="./assets/js/scripts.js"></script>
 </head>
 <body>
     <nav>
@@ -13,10 +14,22 @@
             <li><a href="">Home</a></li>
             <li><a href="">Leaderboard</a></li>
         </ul>
+
     </nav>
     <main>
         <h1>Hall of Fame</h1>
         <h2>Leaderboard</h2>
+        <ul id="leaderboard"></ul>
+        <div>
+          <label for="in-gameName">In-game Name</label>
+          <input type="text" id="in-gameName" placeholder="Enter your In-game Name">
+          <label for="level">Level</label>
+          <input type="number" id="level" placeholder="Enter your Level">
+          <label for="score">Score</label>
+          <input type="number" id="score" placeholder="Enter your Score">
+          <button onclick="addScore()">Add Score</button>
+        </div>
     </main>
+
 </body>
 </html>
