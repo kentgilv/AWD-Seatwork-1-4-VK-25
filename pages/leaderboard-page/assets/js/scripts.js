@@ -14,6 +14,36 @@ function displayScores() {
     });
 }
 
+function sortByLevel() {
+    const scoreList = document.getElementById('leaderboard');
+    scoreList.innerHTML = '';
+
+    // Sort high scores in descending order
+    highScores.sort((a, b) => b.level - a.level);
+
+    // Display top 5 scores
+    highScores.slice(0, 5).forEach(level => {
+        const li = document.createElement('li');
+        li.textContent = `${level.name}: ${level.level} ${level.score}`;
+        scoreList.appendChild(li);
+    });
+}
+
+function sortByName() {
+    const scoreList = document.getElementById('leaderboard');
+    scoreList.innerHTML = '';
+
+    // Sort high scores in descending order
+    highScores.sort((a, b) => { return ('' + a.name).localeCompare(b.name)});
+
+    // Display top 5 scores
+    highScores.slice(0, 5).forEach(name => {
+        const li = document.createElement('li');
+        li.textContent = `${name.name}: ${name.level} ${name.score}`;
+        scoreList.appendChild(li);
+    });
+}
+
 function addScore() {
     const name = document.getElementById('in-gameName').value;
     const level = document.getElementById('level').value;
