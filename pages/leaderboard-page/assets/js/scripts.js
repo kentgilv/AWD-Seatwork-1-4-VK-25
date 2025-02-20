@@ -21,16 +21,27 @@ function addScore() {
 
     if (name && score) {
         highScores.push({ name: name, level: parseInt(level), score: parseInt(score) });
-        displayScores();
-
         // Clear input fields
         document.getElementById('in-gameName').value = '';
         document.getElementById('level').value = '';
         document.getElementById('score').value = '';
+        save();
     } else {
         alert("Please enter both name and score!");
     }
+    MediaStreamTrackEvent
 }
 
-// Display the initial high scores (if any)
-displayScores();
+function save() {
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+
+function load() {
+    highScores = JSON.parse(localStorage.getItem("highScores"));
+}
+
+function clearScores() {
+    highScores = [];
+    save();
+    displayScores();
+}
